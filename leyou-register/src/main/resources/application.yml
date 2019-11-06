@@ -1,0 +1,11 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: leyou-register
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://register.leyou.com/eureka

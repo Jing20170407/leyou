@@ -1,0 +1,16 @@
+# erueka客户端配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://register.leyou.com/eureka
+server:
+  port: 9090
+spring:
+  application:
+    name: leyou-gateway
+
+# zuul配置
+zuul:
+  routes:
+    leyou-item: /item/**
+  prefix: /api
