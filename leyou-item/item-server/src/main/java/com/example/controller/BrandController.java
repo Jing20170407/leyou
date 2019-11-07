@@ -30,6 +30,7 @@ public class BrandController {
         if (pageResult == null) {
             return ResponseEntity.notFound().build();
         }
+        ResponseEntity e = ResponseEntity.ok();
         return ResponseEntity.ok(pageResult);
     }
 }
