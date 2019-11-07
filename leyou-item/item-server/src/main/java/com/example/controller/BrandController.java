@@ -31,7 +31,7 @@ public class BrandController {
             return ResponseEntity.notFound().build();
         }
         //ResponseEntity e = ResponseEntity.ok();
-        //ggggggg111111gggggggg
+        //ggggggg00000gggggggg
         //????
         return ResponseEntity.ok(pageResult);
     }
