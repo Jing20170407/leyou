@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a27b3a3c-babb-4a45-b3d7-816384a04c23" name="Default Changelist" comment="add line">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a27b3a3c-babb-4a45-b3d7-816384a04c23" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-common/leyou-common.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-item/item-interface/item-interface.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/item-server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/controller/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-item/leyou-item.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-register/leyou-register.iml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
