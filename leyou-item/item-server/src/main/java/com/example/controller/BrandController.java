@@ -32,7 +32,7 @@ public class BrandController {
         }
         //ResponseEntity e = ResponseEntity.ok();
         //ggggggg55555555556666666666666666gggggggg
-        //ggggggg000000000000000000000000000gggggggg
+        //ggggggg000001111111111111100000000gggggggg
         //????
         return ResponseEntity.ok(pageResult);
     }
