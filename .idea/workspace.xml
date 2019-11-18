@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a27b3a3c-babb-4a45-b3d7-816384a04c23" name="Default Changelist" comment="" />
+    <list default="true" id="a27b3a3c-babb-4a45-b3d7-816384a04c23" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/leyou-upload/leyou-upload.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-gateway/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-interface/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-interface/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-interface/src/main/java/com/exmaple/pojo/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-interface/src/main/java/com/exmaple/pojo/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-interface/target/classes/com/exmaple/pojo/Brand.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-interface/target/classes/com/exmaple/pojo/Brand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/mapper/BrandMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/mapper/BrandMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/src/main/java/com/example/service/BrandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/target/classes/com/example/controller/BrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/target/classes/com/example/controller/BrandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/target/classes/com/example/mapper/BrandMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/target/classes/com/example/mapper/BrandMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/target/classes/com/example/service/BrandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/target/classes/com/example/service/BrandService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +50,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1SlV1NH4M9EayaWM2fewfxPahUt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -46,6 +66,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\jing\IdeaProjects\git\leyou\leyou-upload\src\main\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -64,8 +89,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestExample.testExample">
-    <configuration name="TestCategoryService.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestAddBrand.addBrandForbackId">
+    <configuration name="TestAddBrand.addBrandForbackId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="item-server" />
       <extension name="coverage">
         <pattern>
@@ -74,15 +99,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.test.TestCategoryService" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="MAIN_CLASS_NAME" value="com.example.test.TestAddBrand" />
+      <option name="METHOD_NAME" value="addBrandForbackId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestExample.testExample" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="item-server" />
+    <configuration name="TestFastfds.testUpload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="leyou-upload" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.test.*" />
@@ -90,8 +115,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.test.TestExample" />
-      <option name="METHOD_NAME" value="testExample" />
+      <option name="MAIN_CLASS_NAME" value="com.example.test.TestFastfds" />
+      <option name="METHOD_NAME" value="testUpload" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,19 +161,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LeyouUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="leyou-upload" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.LeyouUploadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.LeyouUploadApplication" />
         <item itemvalue="Spring Boot.ItemServerApplication" />
-        <item itemvalue="JUnit.TestExample.testExample" />
         <item itemvalue="Spring Boot.LeyouRegisterApplication" />
-        <item itemvalue="JUnit.TestCategoryService.test1" />
+        <item itemvalue="JUnit.TestAddBrand.addBrandForbackId" />
+        <item itemvalue="JUnit.TestFastfds.testUpload" />
       </list>
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
       <serviceView>
-        <option name="contentProportion" value="0.22402598" />
+        <option name="contentProportion" value="0.18920764" />
         <treeState>
           <expand />
           <select />
@@ -184,6 +223,15 @@
       <workItem from="1572746376519" duration="19811000" />
       <workItem from="1572869468483" duration="1547000" />
       <workItem from="1573029029145" duration="2615000" />
+      <workItem from="1573390443021" duration="3094000" />
+      <workItem from="1573443894103" duration="7000" />
+      <workItem from="1573461128184" duration="2956000" />
+      <workItem from="1573516968096" duration="13000" />
+      <workItem from="1573521798200" duration="6955000" />
+      <workItem from="1573695840901" duration="8440000" />
+      <workItem from="1573724875109" duration="2246000" />
+      <workItem from="1573734041232" duration="33149000" />
+      <workItem from="1574063612252" duration="622000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1573116203762</created>
@@ -222,6 +270,26 @@
           <url>file://$PROJECT_DIR$/leyou-item/item-server/src/test/java/com/example/test/TestExample.java</url>
           <line>21</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/leyou-item/item-server/src/test/java/com/example/test/TestAddBrand.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/repository/tk/mybatis/mapper-core/1.1.5/mapper-core-1.1.5-sources.jar!/tk/mybatis/mapper/mapperhelper/SelectKeyGenerator.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/repository/com/github/pagehelper/pagehelper/5.1.10/pagehelper-5.1.10-sources.jar!/com/github/pagehelper/PageInterceptor.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/repository/org/mybatis/mybatis/3.5.1/mybatis-3.5.1-sources.jar!/org/apache/ibatis/executor/CachingExecutor.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

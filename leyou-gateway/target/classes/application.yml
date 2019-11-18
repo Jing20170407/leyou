@@ -14,3 +14,4 @@ zuul:
   routes:
     leyou-item: /item/**
   prefix: /api
+  ignored-services: leyou-upload

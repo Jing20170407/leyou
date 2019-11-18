@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>leyou-common</module>
+        <module>leyou-upload</module>
     </modules>
 
     <parent>
@@ -24,6 +25,8 @@
         <spring-cloud.version>Hoxton.M3</spring-cloud.version>
 <!--        <spring-cloud.version>Finchley.SR2</spring-cloud.version>-->
         <pageHelper.starter.version>1.2.12</pageHelper.starter.version>
+        <fastdfs-client.version>1.26.2</fastdfs-client.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
     </properties>
 
     <dependencyManagement>
@@ -39,6 +42,16 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pageHelper.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastdfs-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
