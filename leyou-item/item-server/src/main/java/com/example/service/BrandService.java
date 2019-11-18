@@ -2,17 +2,15 @@ package com.example.service;
 
 import com.example.common.PageResult;
 import com.example.mapper.BrandMapper;
-import com.exmaple.pojo.Brand;
+import com.example.pojo.Brand;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
-import tk.mybatis.mapper.weekend.WeekendSqls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,14 +53,12 @@ public class BrandService {
 
         PageInfo<Brand> info = new PageInfo<>(list);
 
-        return new PageResult<Brand>(info.getList(), info.getTotal());
+        return new PageResult<>(info.getList(), info.getTotal());
     }
 
     @Transactional
     public void addBrand(Brand brand,Long[] cids) {
         brandMapper.insertSelective(brand);
-        Arrays.asList(cids).forEach(cid->{
-            brandMapper.addBrandAndCategory(cid,brand.getId());
-        });
+        Arrays.asList(cids).forEach(cid->brandMapper.addBrandAndCategory(cid,brand.getId()));
     }
 }

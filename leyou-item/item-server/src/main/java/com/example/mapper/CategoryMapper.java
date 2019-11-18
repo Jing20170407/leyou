@@ -1,6 +1,6 @@
 package com.example.mapper;
 
-import com.exmaple.pojo.Category;
+import com.example.pojo.Category;
 import tk.mybatis.mapper.common.Mapper;
 
 

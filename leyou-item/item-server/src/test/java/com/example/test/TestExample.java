@@ -2,8 +2,7 @@ package com.example.test;
 
 import com.example.common.PageResult;
 import com.example.service.BrandService;
-import com.exmaple.pojo.Brand;
-import com.github.pagehelper.Page;
+import com.example.pojo.Brand;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

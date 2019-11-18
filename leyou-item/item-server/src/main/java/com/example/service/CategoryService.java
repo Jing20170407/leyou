@@ -1,10 +1,9 @@
 package com.example.service;
 
 import com.example.mapper.CategoryMapper;
-import com.exmaple.pojo.Category;
+import com.example.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
