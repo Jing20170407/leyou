@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,5 +61,19 @@ public class BrandService {
     public void addBrand(Brand brand,Long[] cids) {
         brandMapper.insertSelective(brand);
         Arrays.asList(cids).forEach(cid->brandMapper.addBrandAndCategory(cid,brand.getId()));
+    }
+
+    public List<Brand> getByCid(Long cid) {
+        if (cid == null) {
+            return null;
+        }
+        //cid查询bid
+        ArrayList<Brand> brands = new ArrayList<>();
+        List<Long> bids = brandMapper.findByCid(cid);
+        bids.forEach(bid->{
+            Brand brand = brandMapper.selectByPrimaryKey(bid);
+            brands.add(brand);
+        });
+        return brands;
     }
 }

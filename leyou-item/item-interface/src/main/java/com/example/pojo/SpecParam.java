@@ -1,18 +1,25 @@
 package com.example.pojo;
 
+import com.example.Interface.AddInterface;
+import com.example.Interface.UpdateInterface;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "tb_spec_param")
 public class SpecParam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(groups = UpdateInterface.class)
     private Long id;
 
+
+    @NotNull(groups = {AddInterface.class,UpdateInterface.class})
     private Long cid;
-
-    @Column(name = "group_id")
-    private Long gid;
-
+    @NotNull(groups = {AddInterface.class,UpdateInterface.class})
+    private Long groupId;
+    @NotBlank(groups = {AddInterface.class,UpdateInterface.class})
     private String name;
 
     @Column(name="`numeric`")
@@ -20,9 +27,23 @@ public class SpecParam {
 
     private String unit;
 
+    @NotNull(groups = {AddInterface.class,UpdateInterface.class})
     private Boolean generic;
 
+    private Boolean searching;
+
     private String segments;
+
+
+
+
+    public Boolean getSearching() {
+        return searching;
+    }
+
+    public void setSearching(Boolean searching) {
+        this.searching = searching;
+    }
 
     public Long getId() {
         return id;
@@ -40,12 +61,12 @@ public class SpecParam {
         this.cid = cid;
     }
 
-    public Long getGid() {
-        return gid;
+    public Long getGroupId() {
+        return groupId;
     }
 
-    public void setGid(Long gid) {
-        this.gid = gid;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
 
     public String getName() {

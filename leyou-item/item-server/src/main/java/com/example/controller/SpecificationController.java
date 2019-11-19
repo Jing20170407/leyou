@@ -66,11 +66,56 @@ public class SpecificationController {
     }
 
     @GetMapping("/params")
-    public ResponseEntity<List<SpecParam>> getSpecParam(@RequestParam("gid") Long gid) {
-        List<SpecParam> specParams = specParamService.getSpecGroupByGid(gid);
-        if (CollectionUtils.isEmpty(specParams)) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<List<SpecParam>> getSpecParam(@RequestParam(value = "gid",required = false) Long gid,
+                                                        @RequestParam(value = "cid",required = false) Long cid) {
+        if (gid != null) {
+            List<SpecParam> specParams = specParamService.getSpecGroupByGid(gid);
+            if (CollectionUtils.isEmpty(specParams)) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(specParams);
         }
-        return ResponseEntity.ok(specParams);
+
+        if (cid != null) {
+            List<SpecParam> specParams = specParamService.getByCid(cid);
+            if (CollectionUtils.isEmpty(specParams)) {
+                return ResponseEntity.notFound().build();
+            }
+
+            return ResponseEntity.ok(specParams);
+        }
+
+        return ResponseEntity.badRequest().build();
+
+    }
+
+    @PostMapping("param")
+    public ResponseEntity addSpecGroup(@Validated(AddInterface.class) @RequestBody SpecParam specParam, BindingResult bindingResult) {
+        ResponseEntity<Object> bindingResultEntity = ControllerUtils.getBindingResultEntity(bindingResult);
+        if (bindingResultEntity != null) {
+            return bindingResultEntity;
+        }
+        specParamService.addSpecGroup(specParam);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("param/{id}")
+    public ResponseEntity delectSpecParam(@PathVariable("id") Long id) {
+        boolean bo = specParamService.delectSpecParam(id);
+        if (!bo) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("param")
+    public ResponseEntity updateSpecParam(@Validated(UpdateInterface.class) @RequestBody SpecParam specParam, BindingResult bindingResult) {
+        ResponseEntity<Object> bindingResultEntity = ControllerUtils.getBindingResultEntity(bindingResult);
+        if (bindingResultEntity != null) {
+            return bindingResultEntity;
+        }
+        specParamService.updateSpecParam(specParam);
+        return ResponseEntity.ok().build();
     }
 }
