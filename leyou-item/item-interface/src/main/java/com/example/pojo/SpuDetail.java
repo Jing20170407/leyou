@@ -1,5 +1,7 @@
 package com.example.pojo;
 
+import com.example.Interface.AddInterface;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,7 +11,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "tb_spu_detail")
 public class SpuDetail {
 
-    @NotNull
+    @Id
+    @NotNull(message = "com.example.pojo.SpuDatail: spuId不能为空")
     private Long spuId;
 
     private String description;
@@ -65,6 +68,19 @@ public class SpuDetail {
     }
 
     public void setAfterService(String afterService) {
+
         this.afterService = afterService;
+    }
+
+    @Override
+    public String toString() {
+        return "SpuDetail{" +
+                "spuId=" + spuId +
+                ", description='" + description + '\'' +
+                ", genericSpec='" + genericSpec + '\'' +
+                ", SpecialSpec='" + SpecialSpec + '\'' +
+                ", packingList='" + packingList + '\'' +
+                ", afterService='" + afterService + '\'' +
+                '}';
     }
 }
