@@ -5,10 +5,7 @@ import com.example.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,4 +28,15 @@ public class CategoryController {
         return ResponseEntity.ok(list);
     }
 
+
+    @PostMapping()
+    public ResponseEntity<List<Category>> getCategoryByIds(@RequestParam("ids") List<Long> ids) {
+
+        List<Category> categories = categoryService.getCategoryByIds(ids);
+        if (CollectionUtils.isEmpty(categories)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(categories);
+    }
 }

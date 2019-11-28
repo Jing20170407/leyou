@@ -76,4 +76,12 @@ public class BrandService {
         });
         return brands;
     }
+
+    public Brand getBrand(Long id) {
+        if (id == null) {
+            return null;
+        }
+        Brand brand = brandMapper.selectByPrimaryKey(id);
+        return brand;
+    }
 }
