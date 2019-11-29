@@ -23,7 +23,7 @@ public class Goods {
     private Long cid1;
     private Long cid2;
     private Long cid3;
-    private LocalDateTime createTime;
+    private String createTime;
     private List<Long> price;
 
     @Field(type = FieldType.Keyword, index = false)
@@ -86,11 +86,11 @@ public class Goods {
         this.cid3 = cid3;
     }
 
-    public LocalDateTime getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

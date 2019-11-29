@@ -11,9 +11,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -49,43 +51,48 @@ public class SearchService {
     public Goods buildGoods(Spu spu) throws IOException {
         //all
         List<Category> categorys = categoryClient.getCategoryByIds(Arrays.asList(spu.getCid1(), spu.getCid2(), spu.getCid3()));
-        String categoryNames = StringUtils.join(categorys, " ");
+        List<String> names = categorys.stream().map(category -> category.getName()).collect(Collectors.toList());
+        String categoryNames = StringUtils.join(names, " ");
 
         Brand brand = brandClient.getBrand(spu.getBrandId());
 
         String all = spu.getTitle() + " " + categoryNames + " " + brand.getName();
         //prices
         List<Sku> skus = skuClient.getSkuBySpuId(spu.getId());
-        List<Long> prices = skus.stream().map(sku -> sku.getPrice()).collect(Collectors.toList());
+        List<Long> prices = null;
+        if (!CollectionUtils.isEmpty(skus)) {
+            prices = skus.stream().map(sku -> sku.getPrice()).collect(Collectors.toList());
+        }
 
         //specs
-        List<SpecParam> specParams = specParamClient.getSpecParam(null, spu.getCid3());
-
         SpuDetail spuDetail = spuDetailClient.getSpuDetail(spu.getId());
+        List<SpecParam> specParams = specParamClient.getSpecParam(null, spu.getCid3());
+        Map<String, Object> specs = new HashMap<>();
+        if (spuDetail != null&&!CollectionUtils.isEmpty(specParams)) {
+            Map<Long, String> genericSpecMap = MAPPER.readValue(spuDetail.getGenericSpec(), MAPPER.getTypeFactory().constructMapType(Map.class, Long.class, String.class));
+            Map<Long, List<String>> specialSpecMap = MAPPER.readValue(spuDetail.getSpecialSpec(), new TypeReference<Map<Long, List<String>>>() {});
 
-        Map<Long, String> genericSpecMap = MAPPER.readValue(spuDetail.getGenericSpec(), MAPPER.getTypeFactory().constructMapType(Map.class, Long.class, String.class));
-        Map<Long, List<String>> specialSpecMap = MAPPER.readValue(spuDetail.getSpecialSpec(), new TypeReference<Map<Long, List<String>>>() {});
-
-        Map<String,Object> specs = new HashMap<>();
-
-        specParams.forEach(specParam -> {
-            Object value = null;
-            if (specParam.getGeneric()) {
-                value = genericSpecMap.get(specParam.getId());
-                if (specParam.getNumeric()) {
-                    value = chooseSegment(value.toString(), specParam);
+            specParams.forEach(specParam -> {
+                Object value = null;
+                if (specParam.getGeneric()) {
+                    value = genericSpecMap.get(specParam.getId());
+                    if (specParam.getNumeric()) {
+                        if (value != null) {
+                            value = chooseSegment(value.toString(), specParam);
+                        }
+                    }
+                } else {
+                    value = specialSpecMap.get(specParam.getId());
                 }
-            } else {
-                value = specialSpecMap.get(specParam.getId());
-            }
 
-            if (value == null) {
-                value = "其他";
-            }
+                if (value == null) {
+                    value = "其它";
+                }
 
-            String key = specParam.getName();
-            specs.put(key, value);
-        });
+                String key = specParam.getName();
+                specs.put(key, value);
+            });
+        }
 
         //skus
         String skuJson = skuJson = MAPPER.writeValueAsString(skus);
@@ -96,7 +103,7 @@ public class SearchService {
         goods.setCid1(spu.getCid1());
         goods.setCid2(spu.getCid2());
         goods.setCid3(spu.getCid3());
-        goods.setCreateTime(LocalDateTime.parse(spu.getCreateTime()));
+        goods.setCreateTime(spu.getCreateTime());
         goods.setId(spu.getId());
         goods.setSubTitle(spu.getSubTitle());
         goods.setAll(all);
@@ -118,6 +125,9 @@ public class SearchService {
         String result = "其它";
         // 保存数值段
         for (String segment : p.getSegments().split(",")) {
+            if (StringUtils.isBlank(segment)) {
+                break;
+            }
             String[] segs = segment.split("-");
             // 获取数值范围
             double begin = NumberUtils.toDouble(segs[0]);

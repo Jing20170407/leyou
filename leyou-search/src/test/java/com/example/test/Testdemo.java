@@ -5,8 +5,10 @@ import com.example.client.BrandClient;
 import com.example.client.SpuClient;
 import com.example.common.PageResult;
 import com.example.pojo.Goods;
+import com.example.pojo.Spu;
 import com.example.repository.GoodsRepository;
 import com.example.service.SearchService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.netflix.loadbalancer.ILoadBalancer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +17,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.CollectionUtils;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -43,6 +49,7 @@ public class Testdemo {
 
     @Test
     public void buildMapping(){
+        elasticsearchTemplate.deleteIndex(Goods.class);
         elasticsearchTemplate.createIndex(Goods.class);
         elasticsearchTemplate.putMapping(Goods.class);
     }
@@ -54,18 +61,16 @@ public class Testdemo {
         do {
             PageResult<SpuBo> spuPage = spuClient.getSpuPage(null, null, page, rows);
             if (spuPage != null && !CollectionUtils.isEmpty(spuPage.getItems())) {
-                /*List<Goods> goodsList = spuPage.getItems().stream().map(sb->{
+                List<Goods> goodsList = spuPage.getItems().stream().map(sb->{
                     Spu spu = sb;
                     try {
                         Goods goods = searchService.buildGoods(spu);
                         return goods;
-                    } catch (JsonProcessingException e) {
+                    } catch (IOException e) {
                         throw new RuntimeException("spu转goods异常");
                     }
                 }).collect(Collectors.toList());
                 goodsRepository.saveAll(goodsList);
-                page++;*/
-                System.out.println(page);
                 page++;
             }else {
                 return;

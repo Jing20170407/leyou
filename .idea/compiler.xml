@@ -8,11 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="item-interface" />
         <module name="leyou-gateway" />
-        <module name="leyou-upload" />
         <module name="item-server" />
+        <module name="leyou-common" />
         <module name="leyou-search" />
         <module name="leyou-register" />
-        <module name="leyou-common" />
+        <module name="leyou-upload" />
       </profile>
     </annotationProcessing>
   </component>
