@@ -10,6 +10,7 @@ import com.example.repository.GoodsRepository;
 import com.example.service.SearchService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.netflix.loadbalancer.ILoadBalancer;
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -82,4 +87,5 @@ public class Testdemo {
     public void test2() {
         System.out.println(brandClient.getBrand(2505L));
     }
+
 }

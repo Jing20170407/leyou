@@ -2,21 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a27b3a3c-babb-4a45-b3d7-816384a04c23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-gateway/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-gateway/target/classes/com/example/LeyouGatewayApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-gateway/target/classes/com/example/config/LeyouGatewayConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/controller/SearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/pojo/SearchRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/pojo/SearchResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-search/target/classes/com/example/controller/SearchController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-search/target/classes/com/example/pojo/SearchRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leyou-search/target/classes/com/example/pojo/SearchResult.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-item/item-interface/src/main/java/com/example/api/SpuApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-interface/src/main/java/com/example/api/SpuApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-item/item-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-item/item-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/LeyouSearchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/LeyouSearchApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SkuClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SkuClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SpecParamClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SpecParamClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SpuClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SpuClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SpuDetailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/client/SpuDetailClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/pojo/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/pojo/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-common/src/main/java/com/example/common/PageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-common/src/main/java/com/example/common/PageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-common/target/classes/com/example/common/PageResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-common/target/classes/com/example/common/PageResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-gateway/src/main/java/com/example/config/LeyouGatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-gateway/src/main/java/com/example/config/LeyouGatewayConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/service/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/java/com/example/service/SearchService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leyou-search/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leyou-search/src/test/java/com/example/test/Testdemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/src/test/java/com/example/test/Testdemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-search/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-search/target/classes/com/example/service/SearchService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/target/classes/com/example/service/SearchService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-search/target/classes/com/example/service/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/target/classes/com/example/service/SearchService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leyou-search/target/test-classes/com/example/test/Testdemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/leyou-search/target/test-classes/com/example/test/Testdemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +82,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../testDemo" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -108,23 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Testdemo.importGoods">
-    <configuration name="Testdemo.buildMapping" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="leyou-search" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.test.Testdemo" />
-      <option name="METHOD_NAME" value="buildMapping" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.Testdemo.test3">
     <configuration name="Testdemo.importGoods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="leyou-search" />
       <extension name="coverage">
@@ -141,7 +131,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Testdemo.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Testdemo.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="leyou-search" />
       <extension name="coverage">
         <pattern>
@@ -151,7 +141,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.test" />
       <option name="MAIN_CLASS_NAME" value="com.example.test.Testdemo" />
-      <option name="METHOD_NAME" value="test2" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testdemo.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="leyou-search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.test.Testdemo" />
+      <option name="METHOD_NAME" value="test3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,15 +189,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LeyouRegisterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="leyou-register" />
+    <configuration name="LeyouSearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="leyou-search" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.Interface.*" />
+          <option name="PATTERN" value="com.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.LeyouRegisterApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.LeyouSearchApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,11 +211,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.LeyouSearchApplication" />
+        <item itemvalue="JUnit.Testdemo.test3" />
+        <item itemvalue="JUnit.Testdemo.main" />
         <item itemvalue="JUnit.Testdemo.importGoods" />
-        <item itemvalue="JUnit.Testdemo.buildMapping" />
         <item itemvalue="Spring Boot.ItemServerApplication" />
-        <item itemvalue="Spring Boot.LeyouRegisterApplication" />
-        <item itemvalue="JUnit.Testdemo.test2" />
       </list>
     </recent_temporary>
   </component>
@@ -240,6 +246,7 @@
     </option>
   </component>
   <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
     <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
@@ -284,7 +291,7 @@
       <workItem from="1574955725281" duration="1637000" />
       <workItem from="1574957379231" duration="1726000" />
       <workItem from="1574982497921" duration="1408000" />
-      <workItem from="1574983916295" duration="13449000" />
+      <workItem from="1574983916295" duration="50413000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1573116203762</created>
@@ -328,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574957331077</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="完成了商品导入到elasticsearch索引库。feign在springtest下出问题已经解决。">
+      <created>1575001553471</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575001553471</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +368,8 @@
     <MESSAGE value="实现了specparam的增删改，和商品查询。&#10;部分商品添加" />
     <MESSAGE value="实现了商品的功能" />
     <MESSAGE value="实现了部分elasticsearch搜索功能。feign在springtest下出问题处理前。" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了部分elasticsearch搜索功能。feign在springtest下出问题处理前。" />
+    <MESSAGE value="完成了商品导入到elasticsearch索引库。feign在springtest下出问题已经解决。" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了商品导入到elasticsearch索引库。feign在springtest下出问题已经解决。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -396,13 +411,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/leyou-search/src/test/java/com/example/test/Testdemo.java</url>
-          <line>82</line>
+          <line>87</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/leyou-search/src/test/java/com/example/test/Testdemo.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

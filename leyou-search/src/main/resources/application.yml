@@ -8,6 +8,8 @@ spring:
   data:
     elasticsearch:
       cluster-nodes: 192.168.1.14:9300
+  jackson:
+    default-property-inclusion: non_null
 eureka:
   client:
     service-url:
@@ -34,3 +36,4 @@ feign:
       enabled: true # 开启请求压缩
     response:
       enabled: true # 开启响应压缩
+debug: true

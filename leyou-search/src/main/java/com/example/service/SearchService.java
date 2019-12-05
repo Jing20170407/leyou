@@ -1,25 +1,34 @@
 package com.example.service;
 
 import com.example.client.*;
+import com.example.common.PageResult;
 import com.example.pojo.*;
+import com.example.repository.GoodsRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
+import org.elasticsearch.index.query.*;
+import org.elasticsearch.search.aggregations.Aggregation;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.bucket.terms.LongTerms;
+import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,6 +50,9 @@ public class SearchService {
 
     @Autowired
     private SkuClient skuClient;
+
+    @Autowired
+    private GoodsRepository goodsRepository;
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -95,7 +107,10 @@ public class SearchService {
         }
 
         //skus
-        String skuJson = skuJson = MAPPER.writeValueAsString(skus);
+        String skuJson = "";
+        if (skus != null) {
+            skuJson = MAPPER.writeValueAsString(skus);
+        }
 
         //goods
         Goods goods = new Goods();
@@ -148,5 +163,115 @@ public class SearchService {
             }
         }
         return result;
+    }
+
+    public SearchResult searchGoods(SearchRequest searchRequest) {
+        String key = searchRequest.getKey();
+        Integer page = searchRequest.getPage();
+        Map<String,Object> filter = searchRequest.getFilter();
+        if (page == null || page < 1) {
+            page = 1;
+        }
+        Integer rows = 20;
+        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+
+        BoolQueryBuilder matchQuery = QueryBuilders.boolQuery();
+        matchQuery.must(QueryBuilders.matchQuery("all", key).operator(Operator.AND));
+        //搜索过滤
+        if (!CollectionUtils.isEmpty(filter)) {
+            filter.forEach((k,v)->{
+                if (StringUtils.equals("分类", k)) {
+                    k = "cid3";
+                }else if (StringUtils.equals("品牌", k)) {
+                    k = "brandId";
+                } else {
+                    k = "specs." + k + ".keyword";
+                }
+                matchQuery.filter(QueryBuilders.matchQuery(k, v));
+            });
+        }
+        queryBuilder.withQuery(matchQuery);
+
+        queryBuilder.withSourceFilter(new FetchSourceFilter(new String[]{"id", "subTitle", "skus"}, null));
+
+        //分页
+        queryBuilder.withPageable(PageRequest.of(page-1, rows));
+
+        // 分类聚合查询
+        queryBuilder.addAggregation(AggregationBuilders.terms("分类").field("cid3"));
+        // 品牌聚合
+        queryBuilder.addAggregation(AggregationBuilders.terms("品牌").field("brandId"));
+
+
+        AggregatedPage<Goods> search = (AggregatedPage<Goods>) goodsRepository.search(queryBuilder.build());
+
+        //分类
+        List<Map<String,Object>> categoryAggs = this.categoryAggregatedHandle(search.getAggregation("分类"));
+        //品牌
+        List<Brand> brandAggs = this.brandAggregatedHandle(search.getAggregation("品牌"));
+        // 规格参数聚合
+        List<Map<String, Object>> specAggs = null;
+        if (categoryAggs != null || categoryAggs.size() == 1) {
+            specAggs = this.specParamAggregatedHandle((Long)categoryAggs.get(0).get("id"), matchQuery);
+        }
+
+        return new SearchResult(search.getContent(), search.getTotalElements(),
+                search.getTotalPages(),page,categoryAggs,brandAggs,specAggs,filter);
+    }
+
+    private List<Map<String, Object>> specParamAggregatedHandle(Long cid, QueryBuilder matchQuery) {
+        //准备查询条件
+        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+        queryBuilder.withQuery(matchQuery);
+        List<SpecParam> specParam = specParamClient.getSpecParam(null, cid);
+        specParam.stream()
+                .filter(s -> s.getSearching())
+                .forEach(s -> {
+                    queryBuilder.addAggregation(AggregationBuilders.terms(s.getName()).field("specs." + s.getName() + ".keyword"));
+                });
+
+        //查询聚合
+        AggregatedPage<Goods> search = (AggregatedPage<Goods>)goodsRepository.search(queryBuilder.build());
+
+
+        //封装数据
+        List<Map<String, Object>> specs = new ArrayList<>();
+        search.getAggregations().asMap().forEach((k,v)->{
+            StringTerms stringTerms = (StringTerms) v;
+            String name = k;
+
+            List<Object> collect = stringTerms
+                    .getBuckets()
+                    .stream()
+                    .map(bucket -> bucket.getKey())
+                    .collect(Collectors.toList());
+
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("key", name);
+            map.put("options", collect);
+            specs.add(map);
+        });
+
+        return specs;
+    }
+
+    private List<Brand> brandAggregatedHandle(Aggregation agg) {
+        LongTerms longTerms = (LongTerms) agg;
+        return longTerms.getBuckets().stream().map(bucket -> {
+            return brandClient.getBrand((Long) bucket.getKey());
+        }).collect(Collectors.toList());
+    }
+
+    private List<Map<String, Object>> categoryAggregatedHandle(Aggregation agg) {
+        LongTerms longTerms = (LongTerms) agg;
+        return longTerms.getBuckets().stream().map(bucket -> {
+            long cid = bucket.getKeyAsNumber().longValue();
+            List<Category> category = categoryClient.getCategoryByIds(Arrays.asList(cid));
+
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("id", cid);
+            map.put("name", category.get(0).getName());
+            return map;
+        }).collect(Collectors.toList());
     }
 }

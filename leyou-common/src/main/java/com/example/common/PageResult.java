@@ -53,4 +53,14 @@ public class PageResult<T> {
         this.items = items;
         this.total = total;
     }
+
+    public PageResult(List<T> items, Long total, Integer totalPage, Integer curPage) {
+        this.items = items;
+        this.total = total;
+        this.totalPage = totalPage;
+        this.curPage = curPage;
+    }
+
+    public PageResult() {
+    }
 }
