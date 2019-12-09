@@ -10,5 +10,5 @@ import java.util.List;
 public interface SkuApi {
 
     @GetMapping("sku/list")
-    List<Sku> getSkuBySpuId(@RequestParam("id") Long skuId);
+    List<Sku> getSkuBySpuId(@RequestParam("id") Long spuId);
 }

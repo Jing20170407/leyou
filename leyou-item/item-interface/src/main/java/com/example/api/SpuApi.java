@@ -2,10 +2,9 @@ package com.example.api;
 
 import com.example.bo.SpuBo;
 import com.example.common.PageResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.example.pojo.Spu;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 public interface SpuApi {
 
@@ -17,5 +16,8 @@ public interface SpuApi {
             @RequestParam(value = "page", defaultValue = "1") Integer page,
             @RequestParam(value = "rows", defaultValue = "5") Integer rows
     );
+
+    @GetMapping("/spu/{id}")
+    Spu getSpuById(@PathVariable("id") Long id);
 
 }

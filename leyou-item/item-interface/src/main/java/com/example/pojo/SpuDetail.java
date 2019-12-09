@@ -1,9 +1,5 @@
 package com.example.pojo;
 
-import com.example.Interface.AddInterface;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -18,7 +14,7 @@ public class SpuDetail {
     private String description;
 
     private String genericSpec;
-    private String SpecialSpec;
+    private String specialSpec;
 
     private String packingList;
     private String afterService;
@@ -48,11 +44,11 @@ public class SpuDetail {
     }
 
     public String getSpecialSpec() {
-        return SpecialSpec;
+        return specialSpec;
     }
 
     public void setSpecialSpec(String specialSpec) {
-        SpecialSpec = specialSpec;
+        this.specialSpec = specialSpec;
     }
 
     public String getPackingList() {
@@ -78,7 +74,7 @@ public class SpuDetail {
                 "spuId=" + spuId +
                 ", description='" + description + '\'' +
                 ", genericSpec='" + genericSpec + '\'' +
-                ", SpecialSpec='" + SpecialSpec + '\'' +
+                ", SpecialSpec='" + specialSpec + '\'' +
                 ", packingList='" + packingList + '\'' +
                 ", afterService='" + afterService + '\'' +
                 '}';

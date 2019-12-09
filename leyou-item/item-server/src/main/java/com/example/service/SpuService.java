@@ -171,4 +171,9 @@ public class SpuService {
 
         return null;
     }
+
+    public Spu getSpuById(Long id) {
+        Spu spu = spuMapper.selectByPrimaryKey(id);
+        return spu;
+    }
 }
