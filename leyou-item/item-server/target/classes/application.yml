@@ -7,6 +7,13 @@ spring:
     url: jdbc:mysql:///jingtest
     username: root
     password: 123456
+  rabbitmq:
+    host: 192.168.1.14
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+    template:
+      exchange: item.server.exchange
 eureka:
   client:
     service-url:

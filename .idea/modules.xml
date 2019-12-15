@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/leyou-item/item-interface/item-interface.iml" filepath="$PROJECT_DIR$/leyou-item/item-interface/item-interface.iml" />
-      <module fileurl="file://$PROJECT_DIR$/leyou-item/item-server/item-server.iml" filepath="$PROJECT_DIR$/leyou-item/item-server/item-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-item/item-interface/item-interface.iml" filepath="$PROJECT_DIR$/leyou-item/item-interface/item-interface.iml" group="leyou-item and modules" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-item/item-server/item-server.iml" filepath="$PROJECT_DIR$/leyou-item/item-server/item-server.iml" group="leyou-item and modules" />
       <module fileurl="file://$PROJECT_DIR$/.idea/leyou.iml" filepath="$PROJECT_DIR$/.idea/leyou.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-common/leyou-common.iml" filepath="$PROJECT_DIR$/leyou-common/leyou-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" filepath="$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item.iml" group="leyou-item and modules" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item-web/leyou-item-web.iml" filepath="$PROJECT_DIR$/leyou-item-web/leyou-item-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-register/leyou-register.iml" filepath="$PROJECT_DIR$/leyou-register/leyou-register.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-search/leyou-search.iml" filepath="$PROJECT_DIR$/leyou-search/leyou-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-upload/leyou-upload.iml" filepath="$PROJECT_DIR$/leyou-upload/leyou-upload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user.iml" group="leyou-user and modules" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user-interface/leyou-user-interface.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user-interface/leyou-user-interface.iml" group="leyou-user and modules" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user-server/leyou-user-server.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user-server/leyou-user-server.iml" group="leyou-user and modules" />
     </modules>
   </component>
 </project>

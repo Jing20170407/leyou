@@ -10,6 +10,9 @@
         <option value="$PROJECT_DIR$/leyou-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/leyou-item/pom.xml" />
         <option value="$PROJECT_DIR$/leyou-register/pom.xml" />
+        <option value="$PROJECT_DIR$/leyou-user/pom.xml" />
+        <option value="$PROJECT_DIR$/leyou-user/leyou-user-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/leyou-user/leyou-user-server/pom.xml" />
       </list>
     </option>
   </component>

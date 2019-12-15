@@ -1,0 +1,10 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: leyou-user-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://register.leyou.com/eureka
+

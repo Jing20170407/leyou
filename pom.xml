@@ -5,9 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>leyou-common</module>
-        <module>leyou-upload</module>
-        <module>leyou-search</module>
+        <module>leyou-gateway</module>
+        <module>leyou-item</module>
         <module>leyou-item-web</module>
+        <module>leyou-register</module>
+        <module>leyou-search</module>
+        <module>leyou-upload</module>
+        <module>leyou-user</module>
     </modules>
 
     <parent>
@@ -87,11 +91,11 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
+        <!--<repository>
             <id>mirrorId</id>
             <name>Human Readable Name </name>
             <url>http://repo1.maven.org/maven2/</url>
-        </repository>
+        </repository>-->
     </repositories>
 
 </project>

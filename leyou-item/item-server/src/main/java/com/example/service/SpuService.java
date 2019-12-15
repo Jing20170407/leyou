@@ -7,6 +7,7 @@ import com.example.pojo.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,9 @@ public class SpuService {
 
     @Autowired
     private SkuService skuService;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     public PageResult<SpuBo> findByPage(String search, Boolean saleable, Integer page, Integer rows) {
         Example example = new Example(Spu.class);
@@ -141,6 +145,8 @@ public class SpuService {
             stockMapper.insertSelective(stock);
         });
 
+        sendMsg("item.insert",spu.getId());
+
         return null;
     }
 
@@ -169,11 +175,18 @@ public class SpuService {
         Long spuId = spu.getId();
         skuService.addSkus(skux,spuId);
 
+        sendMsg("item.update",spu.getId());
+
         return null;
+    }
+
+    private void sendMsg(String type,Long id) {
+        amqpTemplate.convertAndSend(type,id);
     }
 
     public Spu getSpuById(Long id) {
         Spu spu = spuMapper.selectByPrimaryKey(id);
         return spu;
     }
+
 }
