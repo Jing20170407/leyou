@@ -13,6 +13,7 @@
         <module name="leyou-item-web" />
         <module name="leyou-register" />
         <module name="leyou-search" />
+        <module name="leyou-sms" />
         <module name="leyou-upload" />
         <module name="leyou-user-interface" />
         <module name="leyou-user-server" />
@@ -28,6 +29,7 @@
       <module name="leyou-item-web" target="1.8" />
       <module name="leyou-register" target="1.8" />
       <module name="leyou-search" target="1.8" />
+      <module name="leyou-sms" target="1.8" />
       <module name="leyou-upload" target="1.8" />
       <module name="leyou-user" target="1.8" />
       <module name="leyou-user-interface" target="1.8" />
@@ -43,6 +45,7 @@
       <module name="leyou-item-web" options="-parameters" />
       <module name="leyou-register" options="-parameters" />
       <module name="leyou-search" options="-parameters" />
+      <module name="leyou-sms" options="-parameters" />
       <module name="leyou-upload" options="-parameters" />
       <module name="leyou-user-interface" options="-parameters" />
       <module name="leyou-user-server" options="-parameters" />

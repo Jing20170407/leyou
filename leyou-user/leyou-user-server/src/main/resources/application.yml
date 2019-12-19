@@ -3,8 +3,30 @@ server:
 spring:
   application:
     name: leyou-user-server
+  datasource:
+    url: jdbc:mysql:///jingtest
+    username: root
+    password: 123456
+  redis:
+    host: 192.168.1.14
+  jackson:
+    default-property-inclusion: non_null
+  rabbitmq:
+    template:
+      exchange: leyou.sms.exchange
+    host: 192.168.1.14
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
 eureka:
   client:
     service-url:
       defaultZone: http://register.leyou.com/eureka
+leyou:
+  sms:
+    accessKeyID: LTAI4FmWe5WkBkahkXoWqzHq
+    accessKeySecret: 2mdCyrybVhucpsnqPGNUyM6oWVyKYH
+    signName: 乐忧商城
+    templateCode: SMS_180345992
+
 

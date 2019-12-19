@@ -1,0 +1,44 @@
+package com.example.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "leyou.sms")
+public class SmsProperties {
+
+    String accessKeyID;
+    String accessKeySecret;
+    String signName;
+    String templateCode;
+
+    public String getAccessKeyID() {
+        return accessKeyID;
+    }
+
+    public void setAccessKeyID(String accessKeyID) {
+        this.accessKeyID = accessKeyID;
+    }
+
+    public String getAccessKeySecret() {
+        return accessKeySecret;
+    }
+
+    public void setAccessKeySecret(String accessKeySecret) {
+        this.accessKeySecret = accessKeySecret;
+    }
+
+    public String getSignName() {
+        return signName;
+    }
+
+    public void setSignName(String signName) {
+        this.signName = signName;
+    }
+
+    public String getTemplateCode() {
+        return templateCode;
+    }
+
+    public void setTemplateCode(String templateCode) {
+        this.templateCode = templateCode;
+    }
+}

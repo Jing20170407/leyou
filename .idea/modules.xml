@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/leyou-item-web/leyou-item-web.iml" filepath="$PROJECT_DIR$/leyou-item-web/leyou-item-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-register/leyou-register.iml" filepath="$PROJECT_DIR$/leyou-register/leyou-register.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-search/leyou-search.iml" filepath="$PROJECT_DIR$/leyou-search/leyou-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-sms/leyou-sms.iml" filepath="$PROJECT_DIR$/leyou-sms/leyou-sms.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-upload/leyou-upload.iml" filepath="$PROJECT_DIR$/leyou-upload/leyou-upload.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user.iml" group="leyou-user and modules" />
       <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user-interface/leyou-user-interface.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user-interface/leyou-user-interface.iml" group="leyou-user and modules" />
