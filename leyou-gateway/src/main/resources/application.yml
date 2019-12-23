@@ -17,3 +17,16 @@ zuul:
     leyou-user-server: /user/**
   prefix: /api
   ignored-services: leyou-upload
+
+leyou:
+  jwt:
+    pubKeyPath:  D:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: LEYOUTOKEN # cookie的名称
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

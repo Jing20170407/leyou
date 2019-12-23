@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 public class SpuDetail {
 
     @Id
-    @NotNull(message = "com.example.pojo.SpuDatail: spuId不能为空")
+    @NotNull(message = "com.example.entity.SpuDatail: spuId不能为空")
     private Long spuId;
 
     private String description;

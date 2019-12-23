@@ -1,0 +1,21 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: leyou-auth-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://register.leyou.com/eureka
+
+feign:
+  hystrix:
+    enabled: true
+
+leyou:
+  jwt:
+    secret: leyou@Login(Auth}*^31)&heiMa% # 登录校验的密钥
+    pubKeyPath: D:\\tmp\\rsa\\rsa.pub # 公钥地址
+    priKeyPath: D:\\tmp\\rsa\\rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieName: LEYOUTOKEN

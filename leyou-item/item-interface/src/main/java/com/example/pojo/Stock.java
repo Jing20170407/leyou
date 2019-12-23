@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 public class Stock {
 
     @Id
-    @NotNull(message = "com.example.pojo.Stock: skuId不能为空")
+    @NotNull(message = "com.example.entity.Stock: skuId不能为空")
     private Long skuId;
 
     private Integer seckillStock;
