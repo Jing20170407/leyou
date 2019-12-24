@@ -25,37 +25,45 @@ public class AuthService {
     @Autowired
     private UserClient userClient;
 
-    public void accredit(String username, String password, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String accredit(String username, String password){
         //验证用户名密码
         User user = userClient.queryUser(username, password);
         if (user == null) {
-            throw new RuntimeException("用户名密码错误");
+            return null;
         }
 
         //生成jwt,token
-        UserInfo userInfo = new UserInfo(user.getId(),user.getUsername());
-        PrivateKey privateKey = RsaUtils.getPrivateKey(prop.getPriKeyPath());
+        try {
+            UserInfo userInfo = new UserInfo(user.getId(),user.getUsername());
+            PrivateKey privateKey = RsaUtils.getPrivateKey(prop.getPriKeyPath());
 
-        String token = JwtUtils.generateToken(userInfo,privateKey , prop.getExpire());
+            String token = JwtUtils.generateToken(userInfo, privateKey, prop.getExpire());
 
-        //添加到cookie
-        Integer expire = prop.getExpire();//此为分钟时间
-        expire = expire * 60;//化为秒数
-        CookieUtils.setCookie(request,response,prop.getCookieName(),token,expire);
+            return token;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
-    public UserInfo verify(HttpServletRequest request,HttpServletResponse response) throws Exception {
-        //获取token
-        String leyoutoken = CookieUtils.getCookieValue(request, prop.getCookieName());
-        //校验token
-        UserInfo userInfo = JwtUtils.getInfoFromToken(leyoutoken, RsaUtils.getPublicKey(prop.getPubKeyPath()));
-        //重新设置cookie
-        Integer expire = prop.getExpire();//此为分钟时间
-        expire = expire * 60;//化为秒数
-        CookieUtils.setCookie(request,response,prop.getCookieName(),leyoutoken,expire);
+    public UserInfo verify(HttpServletRequest request,HttpServletResponse response){
+        try {
+            //获取token
+            String token = CookieUtils.getCookieValue(request, prop.getCookieName());
+            //校验token
+            UserInfo userInfo = JwtUtils.getInfoFromToken(token, RsaUtils.getPublicKey(prop.getPubKeyPath()));
+            //重新设置token
+            token = JwtUtils.generateToken(userInfo, prop.getPrivateKey(), prop.getExpire());
+            //重新设置cookie
+            CookieUtils.setCookie(request, response, prop.getCookieName(), token, prop.getExpire() * 60);
+
+            return userInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
-        return userInfo;
+        return null;
     }
 }
