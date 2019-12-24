@@ -29,10 +29,10 @@ public class AuthController {
     }
 
     @GetMapping("verify")
-    public ResponseEntity<UserInfo> verify(HttpServletRequest request) {
+    public ResponseEntity<UserInfo> verify(HttpServletRequest request,HttpServletResponse response) {
         UserInfo userInfo = null;
         try {
-            userInfo = authService.verify(request);
+            userInfo = authService.verify(request,response);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

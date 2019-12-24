@@ -39,16 +39,23 @@ public class AuthService {
         String token = JwtUtils.generateToken(userInfo,privateKey , prop.getExpire());
 
         //添加到cookie
-
-        CookieUtils.setCookie(request,response,prop.getCookieName(),token,prop.getExpire());
+        Integer expire = prop.getExpire();//此为分钟时间
+        expire = expire * 60;//化为秒数
+        CookieUtils.setCookie(request,response,prop.getCookieName(),token,expire);
     }
 
 
-    public UserInfo verify(HttpServletRequest request) throws Exception {
+    public UserInfo verify(HttpServletRequest request,HttpServletResponse response) throws Exception {
         //获取token
         String leyoutoken = CookieUtils.getCookieValue(request, prop.getCookieName());
         //校验token
         UserInfo userInfo = JwtUtils.getInfoFromToken(leyoutoken, RsaUtils.getPublicKey(prop.getPubKeyPath()));
+        //重新设置cookie
+        Integer expire = prop.getExpire();//此为分钟时间
+        expire = expire * 60;//化为秒数
+        CookieUtils.setCookie(request,response,prop.getCookieName(),leyoutoken,expire);
+
+
         return userInfo;
     }
 }

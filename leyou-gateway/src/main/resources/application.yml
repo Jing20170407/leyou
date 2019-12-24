@@ -15,8 +15,11 @@ zuul:
     leyou-item: /item/**
     leyou-search: /search/**
     leyou-user-server: /user/**
+    leyou-auth-server: /auth/**
   prefix: /api
   ignored-services: leyou-upload
+  add-host-header: true
+  sensitive-headers:
 
 leyou:
   jwt:
