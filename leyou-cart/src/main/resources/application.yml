@@ -1,0 +1,27 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: leyou-cart
+  redis:
+    host: 192.168.1.14
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql:///jingtest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://register.leyou.com/eureka
+
+
+
+leyou:
+  jwt:
+    pubKeyPath: D:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: LEYOUTOKEN
+  redis:
+    cartName: 'LEYOU:CART:UID:'
+feign:
+  hystrix:
+    enabled: true

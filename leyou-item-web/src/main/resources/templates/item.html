@@ -94,8 +94,8 @@
 <!--页面顶部，由js动态加载-->
 <div id="itemApp">
 	<div id="nav-bottom">
-		<ly-top />
-	</div>
+	<ly-top />
+</div>
 	<div class="py-container">
 		<div id="item">
 			<div class="crumb-wrap">
@@ -206,8 +206,9 @@
 							</div>
 							<div class="fl">
 								<ul class="btn-choose unstyled">
-									<li>
-										<a href="success-cart.html" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+									<li @click="addCart">
+										<!--<a href="/cart.html" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>-->
+										<span class="sui-btn  btn-danger addshopcar">加入购物车</span>
 									</li>
 								</ul>
 							</div>
@@ -640,9 +641,57 @@
 			},
 			ownSpec() {
 				return JSON.parse(this.sku.ownSpec)
+			},
+			cart() {
+				return {
+					skuId: this.sku.id,
+					title: this.sku.title,
+					image: this.sku.images,
+					price: this.sku.price,
+					num: 1,
+					ownSpec: this.ownSpec
+				}
 			}
 		},
 		methods: {
+			addCart(){
+				this.ly.http("/auth/verify").
+				then(resp => {
+					this.ly.http.post("/cart",{skuId:this.cart.skuId,num:1}).then(resp=>{
+						location = "/cart.html"
+					})
+				}).catch(error=>{
+					//判断cart是否有数据
+					let carts = localStorage.getItem("carts")
+					a:if (carts) {
+						//是，添加cart
+						carts = JSON.parse(carts)
+
+						//遍历是否有当前商品
+						for (let c of carts) {
+							//如果有当前商品，数量加一
+							if (c.skuId == this.cart.skuId) {
+								c.num += 1
+								break a
+							}
+						}
+
+						carts.push(this.cart)
+
+					} else {
+						//否，新建购物车，并添加cart
+						carts = new Array()
+						carts.push(this.cart)
+					}
+
+					//carts添加到localStorage
+					localStorage.setItem("carts",JSON.stringify(carts))
+					//跳转到cart.html
+					location = "/cart.html"
+				})
+
+
+			},
 			locked(id, i) {
 				// 如果只有一个可选项，永不锁定
 				if(specialSpec[id].length === 1) return false;

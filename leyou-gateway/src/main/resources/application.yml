@@ -16,6 +16,7 @@ zuul:
     leyou-search: /search/**
     leyou-user-server: /user/**
     leyou-auth-server: /auth/**
+    leyou-cart: /cart/**
   prefix: /api
   ignored-services: leyou-upload
   add-host-header: true

@@ -66,4 +66,10 @@ public class SkuService {
         skuMapper.deleteByIdList(skuIds);
         stockMapper.deleteByIdList(skuIds);
     }
+
+    public Sku getSkuById(Long id) {
+        Sku sku = new Sku();
+        sku.setId(id);
+        return skuMapper.selectOne(sku);
+    }
 }

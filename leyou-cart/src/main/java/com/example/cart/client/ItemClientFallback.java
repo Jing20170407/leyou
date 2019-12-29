@@ -1,4 +1,4 @@
-package com.example.client;
+package com.example.cart.client;
 
 import com.example.pojo.Sku;
 import org.springframework.stereotype.Component;
@@ -6,10 +6,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class SkuClientFallback implements SkuClient {
+public class ItemClientFallback implements ItemClient {
     @Override
-    public List<Sku> getSkuBySpuId(Long skuId) {
-        System.out.println("SkuClientFallback：请求结果为空，加载默认值！");
+    public List<Sku> getSkuBySpuId(Long spuId) {
         return null;
     }
 

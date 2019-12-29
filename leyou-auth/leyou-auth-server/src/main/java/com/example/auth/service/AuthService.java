@@ -7,6 +7,8 @@ import com.example.auth.utils.JwtUtils;
 import com.example.auth.utils.RsaUtils;
 import com.example.pojo.User;
 import com.example.utils.CookieUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import java.security.PrivateKey;
 @EnableConfigurationProperties(JwtPropertise.class)
 public class AuthService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthService.class);
 
     @Autowired
     private JwtPropertise prop;
@@ -41,7 +44,7 @@ public class AuthService {
 
             return token;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.info("登录失败",e.toString());
         }
         return null;
     }
@@ -60,7 +63,7 @@ public class AuthService {
 
             return userInfo;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.info("验证失败",e.toString());
         }
 
 

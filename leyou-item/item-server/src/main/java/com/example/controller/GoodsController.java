@@ -103,4 +103,14 @@ public class GoodsController {
 
         return ResponseEntity.ok(spu);
     }
+
+    @GetMapping("sku/{id}")
+    public ResponseEntity<Sku> getSkuById(@PathVariable("id") Long id) {
+        Sku sku = skuService.getSkuById(id);
+        if (sku == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(sku);
+    }
 }
