@@ -1,6 +1,7 @@
 package com.example.pojo;
 
 import com.example.common.PageResult;
+import org.springframework.data.domain.Example;
 
 import java.util.List;
 import java.util.Map;
